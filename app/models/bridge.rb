@@ -1,3 +1,3 @@
 class Bridge < ApplicationRecord
-  has_many :travlers
+  has_many :travelers
 end
