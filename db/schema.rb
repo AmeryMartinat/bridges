@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_16_213344) do
+ActiveRecord::Schema.define(version: 2021_01_16_233240) do
 
   create_table "bridges", force: :cascade do |t|
     t.decimal "length"
     t.integer "sort_order"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "trip_id"
   end
 
   create_table "test_models", force: :cascade do |t|
@@ -31,6 +32,8 @@ ActiveRecord::Schema.define(version: 2021_01_16_213344) do
     t.decimal "speed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "trip_id"
+    t.integer "bridge_id"
   end
 
   create_table "trips", force: :cascade do |t|

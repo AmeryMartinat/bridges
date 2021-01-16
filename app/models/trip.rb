@@ -2,6 +2,8 @@ class Trip < ApplicationRecord
   has_many :travelers
   has_many :bridges
 
+  def 
+
   def self.build_from_json(input_json=nil)
     test_json = "{\"trip\":{\"travelers\":[100,50,25,15,2.5],\"bridges\":[{\"length\":100,\"travelers\":[150]},{\"length\":50,\"travelers\":[10]}]}}"
     parsed_json = JSON.parse(input_json.present? ? input_json : test_json)
