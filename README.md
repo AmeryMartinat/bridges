@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
 # bridges
 Simple web application that solves the bridges and torches problem.
 
@@ -47,4 +21,3 @@ Intial Algorithm Thoughts:
 * Not sure if travelers picked up at a given bridge are added to the party permanently or just for that bridge.
 * Will implement a solution for the permanent case with a checkbox to toggle this behavior (time allowing)
 * Not sure if attempting recursive solution or hardcoded. 
->>>>>>> main
