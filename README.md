@@ -5,15 +5,16 @@ Rough Implementation Plan:
 - [x] Determine Language/Framework
 - [x] Set Up Barebones Local Application
 - [x] Create git repo
-- [] Deploy Barebones Application to remote instance
-- [] Q/A Barebones Application behavior on remote instance
-- [] Implement Bridge/Traveler/Trip models
-- [] Implement Basic JSON I/O Controller/View
-- [] Implement Bridge&Torch Time algorithm
-- [] Create better UI to dynamically build JSON
+- [ ] Deploy Barebones Application to remote instance
+- [ ] Q/A Barebones Application behavior on remote instance
+- [ ] Implement Bridge/Traveler/Trip models
+- [ ] Implement Basic JSON I/O Controller/View
+- [ ] Implement Bridge&Torch Time algorithm
+- [ ] Create better UI to dynamically build JSON
+
 Stretch Goals:
-- [] Full Unit Testing
-- [] Bridge Visualization
+- [ ] Full Unit Testing
+- [ ] Bridge Visualization
 
 
 Intial Algorithm Thoughts:
