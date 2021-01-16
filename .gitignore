@@ -17,6 +17,29 @@ pickle-email-*.html
 !/log/.keep
 !/tmp/.keep
 
+
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
+# Ignore uploaded files in development.
+/storage/*
+!/storage/.keep
+
+/public/assets
+.byebug_history
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
 config/master.key
@@ -46,22 +69,5 @@ bower.json
 # Ignore pow environment settings
 .powenv
 
-# Ignore Byebug command history file.
-.byebug_history
-
 # Ignore node_modules
 node_modules/
-
-# Ignore precompiled javascript packs
-/public/packs
-/public/packs-test
-/public/assets
-
-# Ignore yarn files
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity
-
-# Ignore uploaded files in development
-/storage/*
-!/storage/.keep
