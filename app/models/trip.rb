@@ -2,8 +2,6 @@ class Trip < ApplicationRecord
   has_many :travelers
   has_many :bridges
 
-  def 
-
   def self.build_from_json(input_json=nil)
     test_json = "{\"trip\":{\"travelers\":[100,50,25,15,2.5],\"bridges\":[{\"length\":100,\"travelers\":[150]},{\"length\":50,\"travelers\":[10]}]}}"
     parsed_json = JSON.parse(input_json.present? ? input_json : test_json)
@@ -42,6 +40,25 @@ class Trip < ApplicationRecord
     trip.save!
   end
 
+  def time(persist_new_travelers = false)
+    time = 0
+    travelers = self.travelers
+    self.bridges.each do |bridge|
+      if persist_new_travelers
+        travelers << bridge.travelers
+        bridge_travelers = travelers
+      else
+        bridge_travelers = travelers + bridge.travelers
+      end
+      length = bridge.length
+      bridge_travelers.each do |traveler|
+        #  distance / (distance/time) = time
+        time += length/traveler.speed
+      end
+    end
+    time
+    time.to_f.round(2)
+  end
 
   def self.get_name
     names = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina",
