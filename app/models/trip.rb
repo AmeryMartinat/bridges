@@ -2,6 +2,8 @@ class Trip < ApplicationRecord
   has_many :travelers
   has_many :bridges
 
+  after_save :calculate_travel_time
+
   def self.build_from_json(input_json=nil)
     test_json = "{\"trip\":{\"travelers\":[100,50,25,15,2.5],\"bridges\":[{\"length\":100,\"travelers\":[150]},{\"length\":50,\"travelers\":[10]}]}}"
     parsed_json = JSON.parse(input_json.present? ? input_json : test_json)
@@ -40,26 +42,6 @@ class Trip < ApplicationRecord
     trip.save!
   end
 
-  def time(persist_new_travelers = false)
-    time = 0
-    travelers = self.travelers
-    self.bridges.each do |bridge|
-      if persist_new_travelers
-        travelers << bridge.travelers
-        bridge_travelers = travelers
-      else
-        bridge_travelers = travelers + bridge.travelers
-      end
-      length = bridge.length
-      bridge_travelers.each do |traveler|
-        #  distance / (distance/time) = time
-        time += length/traveler.speed
-      end
-    end
-    time
-    time.to_f.round(2)
-  end
-
   def self.get_name
     names = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina",
              "Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados",
@@ -87,5 +69,83 @@ class Trip < ApplicationRecord
              "United Arab Emirates","United Kingdom","Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)",
              "Yemen","Zambia","Zimbabwe"]
     names[rand(names.size)]
+  end
+
+  private
+
+  def calculate_travel_time
+    begin
+      self.update_column(:travel_time, self.time())
+    rescue Exception
+    end
+  end
+
+  def time(persist_new_travelers = false)
+    time = 0
+    travelers = self.travelers
+    self.bridges.each do |bridge|
+      if persist_new_travelers
+        travelers << bridge.travelers
+        bridge_travelers = travelers
+      else
+        bridge_travelers = travelers + bridge.travelers
+      end
+      length = bridge.length
+      start_array = bridge_travelers.sort! { |a,b| b.speed <=> a.speed}
+      end_array = []
+      loop do
+        break if start_array.length == 0
+        start_array.sort! { |a,b| b.speed <=> a.speed}
+        in_transit = []
+        # Calculate Torch Outbound
+        if end_array.length == 0
+          #Initial Trip
+          if start_array.length == 1
+            #Only one traveler just send them across
+            speed = start_array[0].speed
+            in_transit << start_array.delete_at(0)
+            in_transit.sort! { |a,b| b.speed <=> a.speed}
+            time += length/speed
+            end_array << in_transit
+            end_array.sort! { |a,b| b.speed <=> a.speed}
+          else
+            # TODO First trip always sends 2 fastest? Need to double check this isn't even/odd dependent
+            in_transit << start_array.delete_at(0)
+            in_transit << start_array.delete_at(0)
+            in_transit.sort! { |a,b| b.speed <=> a.speed}
+            speed = in_transit[1].speed
+            time += length/speed
+            end_array << in_transit
+            end_array.sort! { |a,b| b.speed <=> a.speed}
+          end
+        else
+          #Subsiquint Trips
+          if start_array.length.odd?
+            # If odd number on start side, send fastest and slowest
+            in_transit << start_array.delete_at(0)
+            in_transit << start_array.delete_at(start_array.length - 1 )
+            in_transit.sort! { |a,b| b.speed <=> a.speed}
+            speed = in_transit[1].speed
+            time += length/speed
+            end_array.sort! { |a,b| b.speed <=> a.speed}
+          else
+            # If even number on start side, send two slowest
+            in_transit << start_array.delete_at(start_array.length - 1 )
+            in_transit << start_array.delete_at(start_array.length - 1 )
+            in_transit.sort! { |a,b| b.speed <=> a.speed}
+            speed = in_transit[1].speed
+            time += length/speed
+            end_array.sort! { |a,b| b.speed <=> a.speed}
+          end
+        end
+        break if start_array.length == 0
+        # Calculate Torch Inbound always send fastest traveler back
+        going_back = end_array.delete_at(0)[0]
+        time += length/going_back.speed
+        start_array << going_back
+        start_array.sort! { |a,b| b.speed <=> a.speed}
+      end
+    end
+    time.to_f.round(2)
   end
 end
