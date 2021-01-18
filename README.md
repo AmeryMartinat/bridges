@@ -49,4 +49,5 @@ Project Prerequisits:
 - There is currently no validation on the input form and error handling in general is very limited
 - My travel time calculation does not persist new travelers by default
   - I.E when travelers join at a specefic bridge, they are not "added to the party" and expected to cross the later bridges
-  - 
+  - If this behavior is desired for a given trip please check the "Persist Party" checkbox on /trips/new
+    
