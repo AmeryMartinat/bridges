@@ -38,7 +38,7 @@ Project Prerequisits:
 - rails s
 
 ### Using the App: ###
-- Navigate to http://127.0.0.1:3000/trips/
+- Navigate to http://34.227.28.178/trips/new
 - Fill out Trip data (sorry the styling is terrible, spent all of my engineering time today trying to get dynamic forms working in ERB)
   - ![edit](https://i.ibb.co/F0Vkwdq/trip-from-prompt.png)
 - After save the trip time is automatically calulated and saved to the record. 
