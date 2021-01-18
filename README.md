@@ -1,7 +1,7 @@
 # bridges
 Simple web application that solves the bridges and torches problem.
 
-Rough Implementation Plan:
+## Rough Implementation Plan: ##
 - [x] Determine Language/Framework
 - [x] Set Up Barebones Local Application
 - [x] Create git repo
@@ -16,12 +16,12 @@ Rough Implementation Plan:
 - [ ] ~~Create better UI to dynamically build JSON (decided not to implement)
 - [x] Implement Dyanamic ERB views (CRUD)
 
-Stretch Goals:
+### Stretch Goals: ###
 - [ ] Full Unit Testing
 - [ ] Bridge Visualization
 
 
-Local Setup Instructions
+## Local Setup Instructions ##
 
 Project Prerequisits:
 - ruby 2.7.2, I recommend using RVM to manage ruby installs: https://rvm.io/
@@ -29,7 +29,7 @@ Project Prerequisits:
 - bundler, https://bundler.io/
 
 
-Server Start:
+### Server Start: ###
 - bundle install
 - yarn
 - npm install
