@@ -11,10 +11,31 @@ Rough Implementation Plan:
   - [ ] Set up nginx [skipping for now]
 - [x] Q/A Barebones Application behavior on remote instance
 - [x] Implement Bridge/Traveler/Trip models
-- [ ] Implement Basic JSON I/O Controller/View
+- [ ] Implement Basic JSON I/O Controller/View (decided not to implement)
 - [x] Implement Bridge&Torch Time algorithm
-- [ ] Create better UI to dynamically build JSON
+- [ ] Create better UI to dynamically build JSON (decided not to implement)
+- [x] Implement Dyanamic ERB views (CRUD)
 
 Stretch Goals:
 - [ ] Full Unit Testing
 - [ ] Bridge Visualization
+
+
+Local Setup Instructions
+
+Project Prerequisits:
+ruby 2.7.2, I recommend using RVM to manage ruby installs: https://rvm.io/
+yarn (latest), https://classic.yarnpkg.com/en/docs/install/#debian-stable
+bundler, https://bundler.io/
+
+
+Server Start:
+1: bundle install
+2: yarn
+3: npm install
+4: rake db:migrate
+5: rails s
+
+Navigate to http://127.0.0.1:3000/trips/
+
+
