@@ -15,7 +15,7 @@ Simple web application that solves the bridges and torches problem.
 - [x] Implement Bridge&Torch Time algorithm
 - [ ] ~~Create better UI to dynamically build JSON~~ (decided not to implement)
 - [x] Implement Dyanamic ERB views (CRUD)
-- [ ] Deplopy Finalized Application to remote instance  [BLOCKED, potentially by SSH access?]
+- [X] Deplopy Finalized Application to remote instance 
 
 ### Stretch Goals: ###
 - [ ] Full Unit Testing
