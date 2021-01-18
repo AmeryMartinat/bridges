@@ -36,6 +36,9 @@ Project Prerequisits:
 - rake db:migrate
 - rails s
 
-Navigate to http://127.0.0.1:3000/trips/
-
+### Using the App: ###
+- Navigate to http://127.0.0.1:3000/trips/
+- Fill out Trip data (sorry the styling is terrible, spent all of my engineering time today trying to get dynamic forms working in ERB)
+- ![edit](https://i.ibb.co/F0Vkwdq/trip-from-prompt.png)
+- ![show](https://i.ibb.co/fXgDGN4/prompt-trip-built.png)
 
