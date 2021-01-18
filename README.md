@@ -15,6 +15,7 @@ Simple web application that solves the bridges and torches problem.
 - [x] Implement Bridge&Torch Time algorithm
 - [ ] ~~Create better UI to dynamically build JSON~~ (decided not to implement)
 - [x] Implement Dyanamic ERB views (CRUD)
+- [ ] Deplopy Finalized Application to remote instance  [BLOCKED, potentially by SSH access?]
 
 ### Stretch Goals: ###
 - [ ] Full Unit Testing
@@ -39,7 +40,13 @@ Project Prerequisits:
 ### Using the App: ###
 - Navigate to http://127.0.0.1:3000/trips/
 - Fill out Trip data (sorry the styling is terrible, spent all of my engineering time today trying to get dynamic forms working in ERB)
-- ![edit](https://i.ibb.co/F0Vkwdq/trip-from-prompt.png)
-- After save the trip time is automatically calulated and saved to the record. Updating the model automatically recalulates and saves the new value
-- ![show](https://i.ibb.co/fXgDGN4/prompt-trip-built.png)
+  - ![edit](https://i.ibb.co/F0Vkwdq/trip-from-prompt.png)
+- After save the trip time is automatically calulated and saved to the record. 
+  - Updating the model automatically recalulates and saves the new value
+  - ![show](https://i.ibb.co/fXgDGN4/prompt-trip-built.png)
 
+### Notes and Caveats: ##
+- There is currently no validation on the input form and error handling in general is very limited
+- My travel time calculation does not persist new travelers by default
+  - I.E when travelers join at a specefic bridge, they are not "added to the party" and expected to cross the later bridges
+  - 
