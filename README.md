@@ -50,4 +50,5 @@ Project Prerequisits:
 - My travel time calculation does not persist new travelers by default
   - I.E when travelers join at a specefic bridge, they are not "added to the party" and expected to cross the later bridges
   - If this behavior is desired for a given trip please check the "Persist Party" checkbox on /trips/new
+  - If "Persist Party" is enabled, bridge order will be determined by "Bridge Number (id)"
     
