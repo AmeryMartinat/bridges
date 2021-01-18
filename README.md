@@ -42,7 +42,7 @@ Project Prerequisits:
 - Fill out Trip data (sorry the styling is terrible, spent all of my engineering time today trying to get dynamic forms working in ERB)
   - ![edit](https://i.ibb.co/F0Vkwdq/trip-from-prompt.png)
 - After save the trip time is automatically calulated and saved to the record. 
-  - Updating the model automatically recalulates and saves the new value
+  - Updating the model recalulates and saves the new value
   - ![show](https://i.ibb.co/fXgDGN4/prompt-trip-built.png)
 
 ### Notes and Caveats: ##
