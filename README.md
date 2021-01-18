@@ -51,4 +51,5 @@ Project Prerequisits:
   - I.E when travelers join at a specefic bridge, they are not "added to the party" and expected to cross the later bridges
   - If this behavior is desired for a given trip please check the "Persist Party" checkbox on /trips/new
   - If "Persist Party" is enabled, bridge order will be determined by "Bridge Number (id)"
+- Did not have enough time to check if the Even/Odd number of travelers affects the starting step (currently always sends two fastest on first step)
     
