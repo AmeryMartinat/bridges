@@ -1,0 +1,30 @@
+<h1>List of Trips</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @trips.each do |trip| %>
+      <tr>
+        <td>
+          <%= trip.name %>
+        </td>
+        <td>
+          <%= link_to 'Show', trip, class: 'btn btn-default btn-xs' %>
+          <%= link_to 'Edit', edit_trip_path(trip), class: 'btn btn-default btn-xs' %>
+          <%= link_to 'Destroy', trip, :confirm => 'You sure bud?', method: :delete, class: 'btn btn-default btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td> Add New </td>
+      <td>
+        <%= link_to 'New', new_trip_path, class: 'btn btn-default btn-xs' %>
+      </td>
+    </tr>
+  </tbody>
+</table>

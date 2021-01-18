@@ -1,0 +1,41 @@
+<%= simple_form_for @trip do |f| %>
+  <table class="table">
+    <tr>
+      <td>
+        Trip Name
+      </td>
+      <td>
+        <%= f.input :name, label: false%>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Travelers
+      </td>
+      <td>
+        <div id='travelers', class='input-group mb-6' }>
+          <%= f.simple_fields_for :travelers do |traveler| %>
+            <%= render 'traveler_fields', :f => traveler%>
+          <% end %>
+          <div class='links'>
+            <%= link_to_add_association 'add traveler', f, :travelers %>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Bridges</td>
+      <td>
+        <div id='bridges', class='input-group mb-6' >
+          <%= f.simple_fields_for :bridges do |bridge| %>
+            <%= render 'bridge_fields', :f => bridge %>
+          <% end %>
+          <div class='links'>
+            <%= link_to_add_association 'add bridge', f, :bridges%>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <%= f.submit 'Save' %>
+<% end %>

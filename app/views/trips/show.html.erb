@@ -1,0 +1,56 @@
+<table class="table">
+  <tr>
+    <td>
+     Trip Name: <%= @trip.name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Travelers
+    </td>
+    <td>
+      <table>
+        <% @trip.travelers.each do |t|%>
+          <tr>
+            <td>
+              Name:  <%= t.name %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Speed: <%= t.speed %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </td>
+  </tr>
+  <% @trip.bridges.each do |b|%>
+    <tr>
+      <td>
+        Bridge Number:  <%= b.sort_order %>
+      </td>
+      <td>
+        Bridge Length:  <%= b.length %>
+      </td>
+      <td>
+        <table>
+        <% b.travelers.each do |t|%>
+          <tr>
+            <td>
+              Bridge Traveler Name:  <%= t.name %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Bridge Traveler Speed: <%= t.speed %>
+            </td>
+          </tr>
+        <% end %>
+        </table>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', trips_path %>

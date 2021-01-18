@@ -2,10 +2,6 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
-# Need some debugging tools
-gem 'pry-rails'
-gem 'pry-nav'
-gem 'pry-doc'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
 # Use Puma as the app server
@@ -28,13 +24,16 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-end
+# For quick scaffolding of views (which I'm bad at)
+gem 'simple_form'
+gem 'cocoon'
+gem 'jquery-rails'
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'sassc-rails', '>= 2.1.0'
 
 group :development do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Use sqlite3 as the local database for Active Record
   gem 'sqlite3', '~> 1.4'
   # Use mina to help with deploy scripting

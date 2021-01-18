@@ -1,0 +1,26 @@
+<div class='nested-fields'>
+  <table class="table">
+    <tr>
+      <td>
+        Bridge Length:
+      </td>
+      <td>
+        <%= f.input :length, label: false %>
+      </td>
+      <td>
+        Bridge Travelers:
+      </td>
+      <td>
+        <div id='bridge-travelers'>
+          <%= f.simple_fields_for :travelers do |traveler| %>
+            <%= render 'traveler_fields', :f => traveler %>
+          <% end %>
+          <div class='links'>
+            <%= link_to_add_association 'add traveler', f, :travelers %>
+          </div>
+        </div>
+        <%= link_to_remove_association "remove bridge", f %>
+      </td>
+    </tr>
+  </table>
+</div>

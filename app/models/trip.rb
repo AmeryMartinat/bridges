@@ -1,7 +1,9 @@
 class Trip < ApplicationRecord
-  has_many :travelers
-  has_many :bridges
+  has_many :travelers, inverse_of: :trip
+  has_many :bridges, inverse_of: :trip
 
+  accepts_nested_attributes_for :travelers, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :bridges, reject_if: :all_blank, allow_destroy: true
   after_save :calculate_travel_time
 
   def self.build_from_json(input_json=nil)

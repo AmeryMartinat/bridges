@@ -1,6 +1,6 @@
 class Traveler < ApplicationRecord
-  has_one :trip
-  has_one :bridge
+  belongs_to :trip, optional: true
+  belongs_to :bridge,optional: true
 
   def self.get_name
     names = %w[Adam Alex Aaron Ben Carl Dan David Edward Fred Frank George Hal Hank Ike John Jack Joe Larry
