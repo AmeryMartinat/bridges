@@ -11,7 +11,7 @@ Simple web application that solves the bridges and torches problem.
   - [ ] Set up nginx [skipping for now]
 - [x] Q/A Barebones Application behavior on remote instance
 - [x] Implement Bridge/Traveler/Trip models
-- [ ] ~~Implement Basic JSON I/O Controller/View~~ (decided not to implement)
+- [ ] ~~Implement Basic JSON I/O Controller/View~~ (decided not to implement after parial completion)
 - [x] Implement Bridge&Torch Time algorithm
 - [ ] ~~Create better UI to dynamically build JSON~~ (decided not to implement)
 - [x] Implement Dyanamic ERB views (CRUD)
