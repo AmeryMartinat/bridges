@@ -31,7 +31,7 @@ Project Prerequisits:
 
 
 ### Server Start: ###
-- bundle install
+- bundle install --without test production
 - yarn
 - npm install
 - rake db:migrate
