@@ -9,7 +9,7 @@ require 'mina/rvm'
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :application_name, 'bridges'
-set :domain, '54.161.135.225'
+set :domain, '34.227.28.178'
 set :user, fetch(:application_name)
 set :deploy_to, "/home/#{fetch(:user)}/app"
 set :repository, 'git@github.com:AmeryMartinat/bridges.git'
