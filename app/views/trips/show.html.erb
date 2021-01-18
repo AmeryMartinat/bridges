@@ -3,6 +3,13 @@
     <td>
      Trip Name: <%= @trip.name %>
     </td>
+    <td>
+      Calculated Trip Time (minutes): <%= @trip.travel_time %>
+    </td>
+
+    <td>
+      Party Persisted?: <%= @trip.persist_party %>
+    </td>
   </tr>
   <tr>
     <td>
@@ -18,7 +25,7 @@
           </tr>
           <tr>
             <td>
-              Speed: <%= t.speed %>
+              Speed (ft/min): <%= t.speed %>
             </td>
           </tr>
         <% end %>
@@ -28,10 +35,10 @@
   <% @trip.bridges.each do |b|%>
     <tr>
       <td>
-        Bridge Number:  <%= b.sort_order %>
+        Bridge Number:  <%= b.id %>
       </td>
       <td>
-        Bridge Length:  <%= b.length %>
+        Bridge Length (ft):  <%= b.length %>
       </td>
       <td>
         <table>
@@ -43,7 +50,7 @@
           </tr>
           <tr>
             <td>
-              Bridge Traveler Speed: <%= t.speed %>
+              Bridge Traveler Speed (ft/min): <%= t.speed %>
             </td>
           </tr>
         <% end %>

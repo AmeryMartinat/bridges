@@ -77,7 +77,7 @@ class Trip < ApplicationRecord
 
   def calculate_travel_time
     begin
-      self.update_column(:travel_time, self.time())
+      self.update_column(:travel_time, self.time(self.persist_party))
     rescue Exception
     end
   end
@@ -87,8 +87,7 @@ class Trip < ApplicationRecord
     travelers = self.travelers
     self.bridges.each do |bridge|
       if persist_new_travelers
-        travelers << bridge.travelers
-        bridge_travelers = travelers
+        bridge_travelers = travelers + bridge.prior_new_travelers + bridge.travelers
       else
         bridge_travelers = travelers + bridge.travelers
       end

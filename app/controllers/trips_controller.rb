@@ -52,7 +52,7 @@ class TripsController < ApplicationController
 
   def trip_params
     params.require(:trip).permit(
-      :name,
+      :name, :persist_party,
       travelers_attributes: [:id, :_destroy, :name, :speed],
       bridges_attributes: [:id, :_destroy, :name, :length, travelers_attributes: [:id, :_destroy, :name, :speed] ],
     )
